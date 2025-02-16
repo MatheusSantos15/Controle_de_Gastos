@@ -20,6 +20,9 @@ button{
     cursor: pointer;
 }
 button:active{
+    opacity: 0.8;
+}
+button[disabled]{
     opacity: 0.7;
 }
 .clear{

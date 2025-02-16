@@ -11,17 +11,17 @@
     <form>
         <div>
             <div><label>Email</label></div>
-            <input type="email" name="email" placeholder="your@email.com"/>
+            <input type="email" name="email" id="email" onchange="validateFields()" placeholder="your@email.com"/>
         </div>
         <div>
             <div><label>Password</label></div>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" id="password" onchange="validateFields()" placeholder="Password">
         </div>
         <div>
-            <button type="button" class="clear">Recover password</button>
+            <button type="button" class="clear" id="recover-password-button" disabled="true">Recover password</button>
         </div>
         <div>
-            <button type="button" class="solid">Go</button>
+            <button type="button" class="solid" id="login-button" disabled="true">Go</button>
         </div>
         <div>
             <button type="button" class="outline">Register</button>
@@ -30,4 +30,5 @@
 
 </body>
 
+    <script src="index.js"></script>
 </html>

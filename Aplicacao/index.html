@@ -11,11 +11,14 @@
     <form>
         <div>
             <div><label>Email</label></div>
-            <input type="email" name="email" id="email" onchange="validateFields()" placeholder="your@email.com"/>
+            <input type="email" name="email" id="email" onchange="onChangeEmail()" placeholder="your@email.com"/>
+            <div class="error" id="email-required-error">Email is required</div>
+            <div class="error" id="email-invalid-error">Email is invalid</div>
         </div>
         <div>
             <div><label>Password</label></div>
-            <input type="password" name="password" id="password" onchange="validateFields()" placeholder="Password">
+            <input type="password" name="password" id="password" onchange="onChangePassword()" placeholder="Password">
+            <div class="error" id="password-required-error">Password is required</div>
         </div>
         <div>
             <button type="button" class="clear" id="recover-password-button" disabled="true">Recover password</button>

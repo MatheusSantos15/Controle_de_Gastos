@@ -17,53 +17,37 @@ function isEmailValid(){
 
 function toggleEmailErrors(){
     const email = form.email().value;
-    if (!email){
-        form.emailRequiredError().style.display = "block";
-    }else{
-        form.emailRequiredError().style.display = "none";
-    }
+    form.emailRequiredError().style.display = email ? "none" : "block";
 
-    if(validateEmail(email)){
-        form.emailInvalidError().style.display = "none";
-    }else {
-        form.emailInvalidError().style.display = "block";
-    }
-
+    form.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
 }
 
 function togglePasswordErrors(){
     const password = form.password().value;
-    if(!password){
-        document.getElementById('password-required-error').style.display = "block";
-    }else{
-        document.getElementById('password-required-error').style.display = "none";
-    }
+    form.passwordRequiredError().style.display = password ? "none" : "block";
 }
 
 function toggleButtonsDisable(){
     const emailValid = isEmailValid();
-    document.getElementById('recover-password-button').disabled = !emailValid;
+    form.recoverPassword().disabled = !emailValid;
 
     const passwordValid = isPasswordValid();
     form.loginButton().disabled = !emailValid || !passwordValid;
 }
 
 function isPasswordValid(){
-    const password = document.getElementById('password').value;
+    const password = form.password().value;
     if (!password){
         return false;
     }
     return true;
 }
-
-function validateEmail(email){
-    return /\S+@\S+\.\S+/.test(email);
-}
-
 const form = {
     email: () => document.getElementById('email'),
     emailInvalidError: () => document.getElementById('email-invalid-error'),
     emailRequiredError: () => document.getElementById('email-required-error'),
     loginButton: () => document.getElementById('login-button'),
-    password: () => document.getElementById('password')
+    password: () => document.getElementById('password'),
+    passwordRequiredError: () => document.getElementById('password-required-error'),
+    recoverPassword: () => document.getElementById('recover-password-button')
 }
